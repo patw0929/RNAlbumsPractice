@@ -11,12 +11,15 @@ import {
   View
 } from 'react-native';
 import Header from './src/components/Header';
+import AlbumList from './src/components/AlbumList';
 
 export default class RNAlbumsPractice extends Component {
   render() {
     return (
       <View>
         <Header title="Albums" />
+
+        <AlbumList />
       </View>
     );
   }
