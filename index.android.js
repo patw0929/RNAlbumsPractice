@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   Text,
-  ScrollView,
+  View,
 } from 'react-native';
 import Header from './src/components/Header';
 import AlbumList from './src/components/AlbumList';
