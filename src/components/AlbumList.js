@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import axios from 'axios';
+import AlbumDetail from './AlbumDetail';
 
 const API_URL = 'https://rallycoding.herokuapp.com/api/music_albums';
 
@@ -31,9 +32,10 @@ export default class AlbumList extends Component {
 
     return albums.map(album => {
       return (
-        <View>
-          <Text>{album.title}</Text>
-        </View>
+        <AlbumDetail
+          key={album.title}
+          album={album}
+        />
       );
     });
   }

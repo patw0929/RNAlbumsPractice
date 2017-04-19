@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   Text,
-  View
+  ScrollView,
 } from 'react-native';
 import Header from './src/components/Header';
 import AlbumList from './src/components/AlbumList';
@@ -16,11 +16,11 @@ import AlbumList from './src/components/AlbumList';
 export default class RNAlbumsPractice extends Component {
   render() {
     return (
-      <View>
+      <ScrollView>
         <Header title="Albums" />
 
         <AlbumList />
-      </View>
+      </ScrollView>
     );
   }
 }
