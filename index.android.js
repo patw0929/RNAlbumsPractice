@@ -16,13 +16,19 @@ import AlbumList from './src/components/AlbumList';
 export default class RNAlbumsPractice extends Component {
   render() {
     return (
-      <ScrollView>
+      <View style={styles.wrapper}>
         <Header title="Albums" />
 
         <AlbumList />
-      </ScrollView>
+      </View>
     );
   }
 }
+
+const styles = {
+  wrapper: {
+    flex: 1,
+  },
+};
 
 AppRegistry.registerComponent('RNAlbumsPractice', () => RNAlbumsPractice);
