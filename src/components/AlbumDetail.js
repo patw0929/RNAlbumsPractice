@@ -4,26 +4,33 @@ import Card from './Card/Card';
 import CardSection from './Card/CardSection';
 
 const AlbumDetail = ({ album }) => {
+  const {
+    thumbnail_image,
+    title,
+    artist,
+    image,
+  } = album;
+
   return (
     <Card>
       <CardSection>
         <View style={styles.avatarWrapper}>
           <Image
             style={styles.avatar}
-            source={{ uri: album.thumbnail_image }}
+            source={{ uri: thumbnail_image }}
           />
         </View>
 
         <View style={styles.info}>
-          <Text style={styles.title}>{album.title}</Text>
-          <Text>{album.artist}</Text>
+          <Text style={styles.title}>{title}</Text>
+          <Text>{artist}</Text>
         </View>
       </CardSection>
 
       <CardSection>
         <Image
           style={styles.image}
-          source={{ uri: album.image }}
+          source={{ uri: image }}
         />
       </CardSection>
     </Card>
