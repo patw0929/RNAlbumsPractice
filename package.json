@@ -5,7 +5,7 @@
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest",
-		"appium": "appium"
+		"appium": "mocha `find src test -name '*spec.js'`"
 	},
 	"dependencies": {
 		"axios": "^0.16.1",
@@ -15,11 +15,24 @@
 	"devDependencies": {
 		"appium": "^1.6.4",
 		"appium-doctor": "^1.4.2",
+		"babel-cli": "6.14.0",
+		"babel-core": "6.14.0",
+		"babel-eslint": "6.0.4",
 		"babel-jest": "19.0.0",
+		"babel-plugin-module-alias": "1.2.0",
+		"babel-plugin-transform-assets": "0.2.0",
+		"babel-preset-es2015": "6.14.0",
 		"babel-preset-react-native": "1.9.1",
+		"caching-transform": "^1.0.1",
+		"chai-enzyme": "^0.6.1",
+		"enzyme": "^2.8.2",
 		"jest": "19.0.2",
-		"mocha": "^3.2.0",
+		"mocha": "3.1.0",
+		"mocha-eslint": "3.0.1",
+		"react-addons-test-utils": "^15.5.1",
+		"react-dom": "^15.5.4",
 		"react-test-renderer": "16.0.0-alpha.6",
+		"sinon-chai": "^2.9.0",
 		"wd": "^1.2.0"
 	},
 	"jest": {
