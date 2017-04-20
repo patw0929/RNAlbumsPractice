@@ -1,25 +1,19 @@
-const { getDriver, authorize, runApp } = appiumUtils;
+const { getDriver, runApp } = appiumUtils;
 
 describe('AlbumDetail', () => {
 
   runApp();
 
   it('should get "Buy Now"', () => {
-    const asserters = require('../../node_modules/wd/lib/asserters');
-    const customAsserter = new asserters.Asserter((el, cb) => {
-      // conduct your test here
-      el.isDisplayed().then((result) => {
-        if (result) { cb(); }
-      })
-    });
-
     return getDriver()
       .elementByAccessibilityId('AlbumList')
-      .elementByXPath('//*[@label="Buy Now"]')
+      .elementByXPath('//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]')
       .click()
       // .source((err, code) => {
       //   console.log(code);
       // })
+      // .sleep(500)
+      // .elementByXPath('//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[2]/XCUIElementTypeStatusBar[1]')
       .resetApp();
   });
 
