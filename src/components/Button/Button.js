@@ -7,8 +7,11 @@ import {
 
 const Button = (props) => {
   return (
-    <TouchableOpacity style={styles.button}>
-      <Text style={styles.text}>Click Me!</Text>
+    <TouchableOpacity
+      style={styles.button}
+      onPress={props.onPress}
+    >
+      <Text style={styles.text}>{props.children}</Text>
     </TouchableOpacity>
   );
 };
