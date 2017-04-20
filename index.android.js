@@ -17,7 +17,7 @@ export default class RNAlbumsPractice extends Component {
   render() {
     return (
       <View style={styles.wrapper}>
-        <Header title="Albums" />
+        <Header title="Albums" accessibilityLabel="Header" />
 
         <AlbumList />
       </View>

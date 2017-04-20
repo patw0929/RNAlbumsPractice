@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 const Header = (props) => {
   return (
-    <View style={styles.wrapper}>
+    <View style={styles.wrapper} accessibilityLabel={props.accessibilityLabel}>
       <Text style={styles.title}>{props.title}</Text>
     </View>
   );

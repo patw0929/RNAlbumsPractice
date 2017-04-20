@@ -39,6 +39,7 @@ const AlbumDetail = ({ album }) => {
       <CardSection>
         <Button
           onPress={() => Linking.openURL(url)}
+          accessibilityLabel="Button"
         >
           Buy Now
         </Button>

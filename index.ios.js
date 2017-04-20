@@ -16,8 +16,8 @@ import AlbumList from './src/components/AlbumList';
 export default class RNAlbumsPractice extends Component {
   render() {
     return (
-      <View style={styles.wrapper}>
-        <Header title="Albums" />
+      <View style={styles.wrapper} accessibilityLabel="Index">
+        <Header title="Albums" accessibilityLabel="Header" />
 
         <AlbumList />
       </View>

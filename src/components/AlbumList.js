@@ -42,7 +42,7 @@ export default class AlbumList extends Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView accessibilityLabel="AlbumList">
         {this.renderAlbums()}
       </ScrollView>
     );
