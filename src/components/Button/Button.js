@@ -10,6 +10,8 @@ const Button = (props) => {
     <TouchableOpacity
       style={styles.button}
       onPress={props.onPress}
+      accessibilityLabel="Button"
+      testID="ButtonTest"
     >
       <Text style={styles.text}>{props.children}</Text>
     </TouchableOpacity>

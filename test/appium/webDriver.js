@@ -3,7 +3,7 @@ import {spawn} from 'child_process';
 import net from 'net';
 import fs from 'fs';
 import path from 'path';
-import {APPIUM_PORT, WEBDRIVER_CAPS, IS_TRAVIS} from './testConfig';
+import { DEVICE_TYPE, APPIUM_PORT, WEBDRIVER_CAPS, IS_TRAVIS } from './testConfig';
 
 const APP_DIR = path.resolve('.');
 
@@ -30,7 +30,12 @@ export function stop() {
 }
 
 function buildApp() {
+  if (DEVICE_TYPE !== 'iOS') {
+    return Promise.resolve();
+  }
+
   console.log('building native application');
+
   try {
     const buildDir = fs.readdirSync(APP_DIR + '/' + WEBDRIVER_CAPS.app);
 
@@ -41,7 +46,7 @@ function buildApp() {
   } catch (e) {}
 
   return new Promise(resolve => {
-    const build = spawn(APP_DIR + '/scripts/build-tests.sh');
+    const build = spawn(APP_DIR + '/scripts/build-tests-ios.sh');
 
     build.on('close', resolve);
     build.stdout.pipe(process.stdout);

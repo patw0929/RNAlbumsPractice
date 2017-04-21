@@ -5,7 +5,8 @@
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest",
-		"appium": "mocha `find src test -name '*spec.js'`"
+		"appium:ios": "DEVICE_TYPE=iOS mocha `find src test -name '*.ios.test.js'`",
+		"appium:android": "DEVICE_TYPE=Android DEVICE_NAME='ASUS' mocha `find src test -name '*.android.test.js'`"
 	},
 	"dependencies": {
 		"axios": "^0.16.1",
