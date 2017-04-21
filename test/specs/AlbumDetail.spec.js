@@ -10,7 +10,7 @@ describe('AlbumDetail', () => {
     driver.resetApp();
   });
 
-  it('should get "Buy Now"', () => {
+  it('should get Safari window with back button after click the "Buy Now" button', () => {
     return driver
       .elementByAccessibilityId('AlbumList')
       .elementByXPath('//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]')
