@@ -24,19 +24,6 @@ export function callApp(opts) {
     .click()
 }
 
-// export function authorize() {
-//  before(() => {
-//    return callApp(actions.logout)
-//      .then(() => callApp(actions.login));
-//  });
-//  after(logout);
-// }
-
-// export function unAuthorize() {
-//  before(logout);
-//  after(logout);
-// }
-
 export function redirect(name, params) {
   return callApp({ redirects: [{ name, params }] });
 }
