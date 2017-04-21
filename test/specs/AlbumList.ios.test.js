@@ -1,6 +1,6 @@
 const { getDriver, runApp } = appiumUtils;
 
-describe('AlbumDetail', () => {
+describe('AlbumList', () => {
   let driver;
 
   runApp();
@@ -11,15 +11,30 @@ describe('AlbumDetail', () => {
     driver.setImplicitWaitTimeout(20000);
   });
 
-  it('should get Safari window with back button after tapping the "Buy Now" button', () => {
+  it('should get last item`s title 1989', () => {
+
     return driver
-      .elementByAccessibilityId('AlbumList')
+      .waitForElementsByAccessibilityId('AlbumDetail').last()
+      .source((err, code) => {
+        console.log(code);
+      })
+      .then((el) => {
+        console.log(el);
+
+        const scrollOpts = {
+          element: el.value,
+          toVisible: true,
+        };
+
+        return driver.execute("mobile: scroll", [scrollOpts]);
+      })
+      .sleep(10000);
       // .elementByXPath('//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]')
       // .source((err, code) => {
       //   console.log(code);
       // })
-      .waitForElementsByAccessibilityId('Button').first()
-      .click()
-      .elementByXPath('//*[@name="Return to RNAlbumsPractice"]')
+      //.waitForElementsByAccessibilityId('Button').first()
+      // .click()
+      // .elementByXPath('//*[@name="Return to RNAlbumsPractice"]')
   });
 });

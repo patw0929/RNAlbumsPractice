@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 const Card = (props) => {
   return (
-    <View style={styles.wrapper}>
+    <View style={styles.wrapper} accessibilityLabel="AlbumDetail">
       {props.children}
     </View>
   );
