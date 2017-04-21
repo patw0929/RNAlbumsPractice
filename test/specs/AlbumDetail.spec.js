@@ -1,20 +1,24 @@
 const { getDriver, runApp } = appiumUtils;
 
 describe('AlbumDetail', () => {
+  let driver;
 
   runApp();
 
+  beforeEach(() => {
+    driver = getDriver();
+    driver.resetApp();
+  });
+
   it('should get "Buy Now"', () => {
-    return getDriver()
+    return driver
       .elementByAccessibilityId('AlbumList')
       .elementByXPath('//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]')
       .click()
       // .source((err, code) => {
       //   console.log(code);
       // })
-      // .sleep(500)
-      // .elementByXPath('//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[2]/XCUIElementTypeStatusBar[1]')
-      .resetApp();
+      .elementByXPath('//*[@name="Return to RNAlbumsPractice"]')
   });
 
   // it('should update counter', () => {

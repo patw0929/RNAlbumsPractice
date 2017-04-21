@@ -38,7 +38,7 @@ export function callApp(opts) {
 // }
 
 export function redirect(name, params) {
-  return callApp({redirects: [{name, params}]});
+  return callApp({ redirects: [{ name, params }] });
 }
 
 const logout = () => callApp(actions.logout)

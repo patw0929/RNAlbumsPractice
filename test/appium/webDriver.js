@@ -17,19 +17,23 @@ export function createDriver() {
   if (driver) {
     return Promise.resolve(driver);
   }
+
   return buildApp()
     .then(() => startAppium())
     .then(() => waitPort(APPIUM_PORT))
     .then(createWebDriver)
 }
+
 export function stop() {
   return driver && driver.quit()
-      .catch(e => {});
+    .catch(e => {});
 }
+
 function buildApp() {
   console.log('building native application');
   try {
     const buildDir = fs.readdirSync(APP_DIR + '/' + WEBDRIVER_CAPS.app);
+
     if (buildDir.length) {
       console.log('build exist, skipping build');
       return Promise.resolve();
@@ -38,6 +42,7 @@ function buildApp() {
 
   return new Promise(resolve => {
     const build = spawn(APP_DIR + '/scripts/build-tests.sh');
+
     build.on('close', resolve);
     build.stdout.pipe(process.stdout);
     build.stderr.pipe(process.stderr);
@@ -48,9 +53,11 @@ function logsHandler(driver) {
   driver.on('status', info => {
     console.log(info);
   });
+
   driver.on('command', (meth, path, data) => {
     console.log(' > ' + meth, path, data || '');
   });
+
   driver.on('http', (meth, path, data) => {
     console.log(' > ' + meth, path, data || '');
   });
@@ -59,13 +66,17 @@ function logsHandler(driver) {
 function startAppium() {
   return checkPort(APPIUM_PORT).catch(e => new Promise(resolve => {
     const p = spawn('appium');
+
     process.on('exit', () => {
       p.kill('SIGHUP');
     });
+
     p.stderr.pipe(process.stderr);
+
     if (IS_TRAVIS) {
       //p.stdout.pipe(process.stdout);
     }
+
     resolve();
   }));
 }
@@ -73,6 +84,7 @@ function startAppium() {
 function checkPort(port) {
   return new Promise((resolve, reject) => {
     const client = net.connect(port, resolve);
+
     client.on('error', err => {
       client.destroy();
       reject();
@@ -91,7 +103,9 @@ function createWebDriver() {
     host: 'localhost',
     port: 4723
   };
+
   driver = wd.promiseChainRemote(serverConfig);
   logsHandler(driver);
+
   return driver.init(WEBDRIVER_CAPS);
 }
