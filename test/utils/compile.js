@@ -4,6 +4,7 @@ const babel = require('babel-core');
 const cachingTransform = require('caching-transform');
 const ignore = /node_modules\/(?!(react-tools|react-native-.*|texts)\/)/;
 
+require('babel-polyfill');
 // require('react-native/packager/react-packager/src/Resolver/polyfills/babelHelpers.js');
 require('asset-require-hook')({
 	extensions: ['png', 'jpg'],
