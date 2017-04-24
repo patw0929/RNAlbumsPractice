@@ -1,24 +1,8 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
-  View,
   Text,
   TouchableOpacity,
 } from 'react-native';
-
-const Button = (props) => {
-  return (
-    <TouchableOpacity
-      style={styles.button}
-      onPress={props.onPress}
-      accessibilityLabel="Button"
-      testID="ButtonTest"
-    >
-      <Text style={styles.text}>{props.children}</Text>
-    </TouchableOpacity>
-  );
-};
-
-Button.displayName = 'Button';
 
 const styles = {
   button: {
@@ -38,7 +22,34 @@ const styles = {
     fontWeight: '600',
     paddingTop: 10,
     paddingBottom: 10,
-  }
+  },
+};
+
+const Button = (props) => {
+  return (
+    <TouchableOpacity
+      style={ styles.button }
+      onPress={ props.onPress }
+      accessibilityLabel="Button"
+      testID="ButtonTest"
+    >
+      <Text style={ styles.text }>{props.children}</Text>
+    </TouchableOpacity>
+  );
+};
+
+Button.displayName = 'Button';
+
+Button.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
+  onPress: PropTypes.func.isRequired,
+};
+
+Button.defaultProps = {
+  children: null,
 };
 
 export default Button;

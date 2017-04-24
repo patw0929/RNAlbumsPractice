@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Text } from 'react-native';
+import { ScrollView } from 'react-native';
 import axios from 'axios';
 import AlbumDetail from './AlbumDetail';
 
@@ -16,7 +16,7 @@ export default class AlbumList extends Component {
 
   componentWillMount() {
     axios.get(API_URL)
-      .then(res => {
+      .then((res) => {
         const data = res.data || [];
 
         this.setState({
@@ -30,11 +30,11 @@ export default class AlbumList extends Component {
 
     if (!albums) return null;
 
-    return albums.map(album => {
+    return albums.map((album) => {
       return (
         <AlbumDetail
-          key={album.title}
-          album={album}
+          key={ album.title }
+          album={ album }
         />
       );
     });

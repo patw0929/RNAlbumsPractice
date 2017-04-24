@@ -1,15 +1,5 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { View, Text } from 'react-native';
-
-const Header = (props) => {
-  return (
-    <View style={styles.wrapper} accessibilityLabel="Header">
-      <Text style={styles.title}>{props.title}</Text>
-    </View>
-  );
-};
-
-Header.displayName = 'Header';
 
 const styles = {
   wrapper: {
@@ -30,6 +20,20 @@ const styles = {
   title: {
     fontSize: 20,
   },
+};
+
+const Header = (props) => {
+  return (
+    <View style={ styles.wrapper } accessibilityLabel="Header">
+      <Text style={ styles.title }>{props.title}</Text>
+    </View>
+  );
+};
+
+Header.displayName = 'Header';
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 export default Header;

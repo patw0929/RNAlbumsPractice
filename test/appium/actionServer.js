@@ -9,7 +9,7 @@ export function startServer() {
     return server;
   }
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     server = createServer((req, res) => {
       res.end(JSON.stringify({ actions, redirects }));
       actions = [];
@@ -22,8 +22,8 @@ export function startServer() {
   });
 }
 
-export function action(action) {
-  actions.push(action);
+export function action(act) {
+  actions.push(act);
 }
 
 export function redirect(route) {
@@ -31,5 +31,5 @@ export function redirect(route) {
 }
 
 export function stop() {
-  server && server.close();
+  server && server.close(); // eslint-disable-line chai-friendly/no-unused-expressions
 }
