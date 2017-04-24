@@ -30,10 +30,6 @@ export function stop() {
 }
 
 function buildApp() {
-  if (DEVICE_TYPE !== 'iOS') {
-    return Promise.resolve();
-  }
-
   console.log('building native application');
 
   try {
@@ -45,13 +41,25 @@ function buildApp() {
     }
   } catch (e) {}
 
-  return new Promise(resolve => {
-    const build = spawn(APP_DIR + '/scripts/build-tests-ios.sh');
+  if (DEVICE_TYPE === 'iOS') {
+    return new Promise(resolve => {
+      const build = spawn(APP_DIR + '/scripts/build-tests-ios.sh');
 
-    build.on('close', resolve);
-    build.stdout.pipe(process.stdout);
-    build.stderr.pipe(process.stderr);
-  });
+      build.on('close', resolve);
+      build.stdout.pipe(process.stdout);
+      build.stderr.pipe(process.stderr);
+    });
+  } else if (DEVICE_TYPE === 'Android') {
+    return new Promise(resolve => {
+      const build = spawn(APP_DIR + '/scripts/build-tests-android.sh');
+
+      build.on('close', resolve);
+      build.stdout.pipe(process.stdout);
+      build.stderr.pipe(process.stderr);
+    });
+  }
+
+  throw new Error('Wrong DEVICE_TYPE');
 }
 
 function logsHandler(driver) {
