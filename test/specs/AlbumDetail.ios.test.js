@@ -18,6 +18,6 @@ describe('AlbumDetail', () => {
     await element.click();
     const target = await driver.elementByXPath('//*[@name="Return to RNAlbumsPractice"]');
 
-    target.should.exist;
+    expect(target).to.be.exist;
   });
 });

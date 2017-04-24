@@ -25,9 +25,9 @@ describe('AlbumList', () => {
     await driver.performTouchAction(scrollDown);
     await driver.performTouchAction(scrollDown);
 
-    const element = await driver.elementByXPath('//*[@text="Speak Now"]')
+    const element = await driver.elementByXPath('//*[@text="Speak Now"]');
     const displayed = await driver.isDisplayed(element);
 
-    displayed.should.be.true;
+    expect(displayed).to.be.true;
   });
 });

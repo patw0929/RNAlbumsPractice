@@ -12,7 +12,6 @@ describe('AlbumDetail', () => {
   });
 
   it('should get Browser window with back button after clicking the "Buy Now" button', async () => {
-    const list = await driver.elementByAccessibilityId('AlbumList');
     const buyButton = await driver.elementsByAccessibilityId('Button').first();
 
     await buyButton.click();
@@ -23,6 +22,6 @@ describe('AlbumDetail', () => {
 
     const target = await driver.elementByAccessibilityId('Taylor Swift');
 
-    target.should.be.exist;
+    expect(target).to.exist;
   });
 });

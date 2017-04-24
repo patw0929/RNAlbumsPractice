@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const babel = require('babel-core');
 const cachingTransform = require('caching-transform');
+
 const ignore = /node_modules\/(?!(react-tools|react-native-.*|texts)\/)/;
 
 require('babel-polyfill');
