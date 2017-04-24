@@ -13,17 +13,18 @@ describe('AlbumList', () => {
     driver.setImplicitWaitTimeout(20000);
   });
 
-  it('should see the title "Fearless"', async () => {
+  it('should see the title "Speak Now" after scroll down twice', async () => {
     const action = new TouchAction(driver);
     const scrollDown = action.press({ y: 300 })
       .moveTo({ y: -1000 }) // drag finger up
       .release(); // release finger
 
     await driver.performTouchAction(scrollDown);
+    await driver.performTouchAction(scrollDown);
 
-    const element = await driver.elementByXPath('//*[@value="Fearless"]');
-    await driver.isDisplayed(element, (err, bool) => {
-      expect(bool).to.equal(true);
-    });
+    const element = await driver.elementByXPath('//*[@value="Speak Now"]')
+    const displayed = await driver.isDisplayed(element);
+
+    displayed.should.be.true;
   });
 });
