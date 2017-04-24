@@ -7,16 +7,21 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  Text,
   View,
 } from 'react-native';
 import Header from './src/components/Header';
 import AlbumList from './src/components/AlbumList';
 
+const styles = {
+  wrapper: {
+    flex: 1,
+  },
+};
+
 export default class RNAlbumsPractice extends Component {
   render() {
     return (
-      <View style={styles.wrapper} accessibilityLabel="Index">
+      <View style={ styles.wrapper } accessibilityLabel="Index">
         <Header title="Albums" accessibilityLabel="Header" />
 
         <AlbumList />
@@ -24,11 +29,5 @@ export default class RNAlbumsPractice extends Component {
     );
   }
 }
-
-const styles = {
-  wrapper: {
-    flex: 1,
-  },
-};
 
 AppRegistry.registerComponent('RNAlbumsPractice', () => RNAlbumsPractice);
