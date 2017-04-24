@@ -33,13 +33,15 @@ function buildApp() {
   console.log('building native application');
 
   try {
-    const buildDir = fs.readdirSync(APP_DIR + '/' + WEBDRIVER_CAPS.app);
+    const isExists = fs.existsSync(APP_DIR + '/' + WEBDRIVER_CAPS.app);
 
-    if (buildDir.length) {
+    if (isExists) {
       console.log('build exist, skipping build');
       return Promise.resolve();
     }
-  } catch (e) {}
+  } catch (e) {
+    console.log(e);
+  }
 
   if (DEVICE_TYPE === 'iOS') {
     return new Promise(resolve => {

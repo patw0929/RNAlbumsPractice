@@ -1,8 +1,8 @@
 #!/bin/bash
-# if [[ $TRAVIS ]]; then
-# 	CONFIGURATION=Release
-# else
-# 	CONFIGURATION=Debug
-# fi;
+if [[ $TRAVIS ]]; then
+	CONFIGURATION=Release
+else
+	CONFIGURATION=Debug
+fi;
 echo "***** Building $CONFIGURATION configuration *****"
-cd android && ./gradlew assembleRelease
+cd android && ./gradlew assemble$CONFIGURATION
