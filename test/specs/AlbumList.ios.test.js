@@ -7,10 +7,10 @@ describe('AlbumList', () => {
 
   runApp();
 
-  beforeEach(() => {
-    driver = getDriver();
-    driver.resetApp();
-    driver.setImplicitWaitTimeout(20000);
+  beforeEach(async () => {
+    driver = await getDriver();
+    await driver.resetApp();
+    await driver.setImplicitWaitTimeout(20000);
   });
 
   it('should see the title "Speak Now" after scroll down twice', async () => {
