@@ -1,0 +1,5 @@
+--compilers js:test/utils/compile.js
+--require ./test/utils/setup
+--recursive
+--timeout 1200000
+--reporter json

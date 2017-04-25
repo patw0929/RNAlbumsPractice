@@ -1,15 +1,5 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { View } from 'react-native';
-
-const Card = (props) => {
-  return (
-    <View style={styles.wrapper}>
-      {props.children}
-    </View>
-  );
-};
-
-Card.displayName = 'Card';
 
 const styles = {
   wrapper: {
@@ -29,6 +19,27 @@ const styles = {
     marginRight: 5,
     marginTop: 10,
   },
+};
+
+const Card = (props) => {
+  return (
+    <View style={ styles.wrapper } accessibilityLabel="AlbumDetail">
+      {props.children}
+    </View>
+  );
+};
+
+Card.displayName = 'Card';
+
+Card.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
+};
+
+Card.defaultProps = {
+  children: null,
 };
 
 export default Card;
